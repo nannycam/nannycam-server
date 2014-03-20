@@ -6,10 +6,12 @@ var server = net.createServer(function (sock) {
 	console.log("Server connected");
 	sock.on('end', function() {
     	console.log('server disconnected');
+    	clearInterval(testloop);
   	});
-  	setInterval(function(){
+  	var testloop = setInterval(function(){
   		var points = {"points":[{"x":getRandomPoint(),"y":getRandomPoint()}]};
 		sock.write(JSON.stringify(points)+"\r\n");
+		console.log("sent points : " + JSON.stringify(points));
   	},1500);
   	sock.pipe(sock);
 
