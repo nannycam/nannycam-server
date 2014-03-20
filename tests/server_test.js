@@ -9,8 +9,7 @@ client.connect(8080, '127.0.0.1', function() {
 client.on('data', function(data) {
     
     console.log('DATA: ' + data);
-    client.destroy();
-    
+
 });
 
 client.on('close', function() {
