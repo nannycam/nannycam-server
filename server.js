@@ -1,5 +1,3 @@
-
-
 var net = require("net");
 
 var server = net.createServer(function (sock) {
@@ -14,11 +12,10 @@ var server = net.createServer(function (sock) {
 		console.log("sent points : " + JSON.stringify(points));
   	},1500);
   	sock.pipe(sock);
-
 });
 
 server.listen(8080, function () {
-	console.log("Server started on port 8080");
+console.log("Server started on port 8080");
 });
 
 function getRandomPoint () {

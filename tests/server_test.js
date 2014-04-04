@@ -1,10 +1,17 @@
+var net = require('net');
 
+var client = new net.Socket();
+client.connect(8080, '127.0.0.1', function() {
 
-var net = require("net");
+    console.log('CONNECTED TO: ' + '127.0.0.1' + ':' + 8080);
+});
 
-// create client
+client.on('data', function(data) {
+    
+    console.log('DATA: ' + data);
 
+});
 
-
-// ping the server for data
-// or output what the server sends
+client.on('close', function() {
+    console.log('Connection closed');
+});
